@@ -1,0 +1,38 @@
+﻿@model List<StudentManagementSystem.Models.Context.City>
+@{
+    ViewBag.Title = "AllCity";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container-fluid">
+    <a href="/Address/AddCity" class="btn btn-outline-success my-4">Add City</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>City Name</th>
+                <th>State Name</th>
+                <th>Country Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.CityName</td>
+                <td>@item.State.StateName</td>
+                <td>@item.Country.CountryName</td>
+                <td><a class="btn btn-outline-warning mx-2" href="/Address/EditCity/@item.Id">Edit</a><a class="btn btn-outline-danger mx-2" href="/Address/DeleteCity/@item.Id">Delete</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    @if (!Model.Any()) { 
+        <h4 class="text-center">No Data to show!</h4>
+    }
+</div>
+
+

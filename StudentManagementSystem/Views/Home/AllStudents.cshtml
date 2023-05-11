@@ -1,0 +1,53 @@
+﻿@model List<StudentManagementSystem.Models.Context.getStudentData_Result>
+@{
+    ViewBag.Title = "AllStudents";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Mobile Number</th>
+                <th>Address</th>
+                <th>DOB</th>
+                <th>Gender</th>
+                <th>Country</th>
+                <th>State</th>
+                <th>City</th>
+                <th>Teacher</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                var date = item.DOB.ToString("yyyy-MM-dd");
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.Email</td>
+                <td>@item.MobileNo</td>
+                <td>@item.Address</td>
+                <td>@date</td>
+                <td>@item.Gender</td>
+                <td>@item.CountryName</td>
+                <td>@item.StateName</td>
+                <td>@item.CityName</td>
+                <td>@item.TeacherName</td>
+                <td class="text-center"><a class="btn btn-outline-warning m-2" href="/Home/EditStudent/@item.Id">Edit</a><a href="/Home/DeleteStudent/@item.Id" class="btn btn-outline-danger m-2">Delete</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    @if (!Model.Any())
+    {
+        <h4 class="text-center">No Data to show!</h4>
+    }
+</div>
+

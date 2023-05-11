@@ -1,0 +1,109 @@
+﻿@model StudentManagementSystem.Models.Context.Student
+@{
+    ViewBag.Title = "StudentFrom";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center">StudentForm</h1>
+
+@using (Html.BeginForm())
+{
+
+
+    <div class="form-group row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            <label for="fname">First Name</label>
+            @*<input type="text" class="form-control form-control-user" id="exampleFirstName"
+                   placeholder="First Name">*@
+            @Html.TextBoxFor(x=>x.FirstName,new { @class= "form-control form-control-user", placeholder = "First Name" })
+            @Html.ValidationMessageFor(x=>x.FirstName)
+        </div>
+        <div class="col-sm-6">
+            <label for="lname">Last Name</label>
+            @*<input type="text" class="form-control form-control-user" id="exampleLastName"
+        placeholder="Last Name">*@
+            @Html.TextBoxFor(x => x.LastName, new { @class = "form-control form-control-user", placeholder = "Last Name" })
+            @Html.ValidationMessageFor(x => x.LastName)
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-6  mb-3 mb-sm-0">
+            <label for="email">Email</label>
+            @*<input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                   placeholder="Email Address">*@
+            @Html.TextBoxFor(x => x.Email, new { @class = "form-control form-control-user", placeholder = "Email Address" })
+            @Html.ValidationMessageFor(x => x.Email)
+        </div>
+        <div class="col-sm-6  mb-3 mb-sm-0">
+            <label for="mobile">Mobile Number</label>
+            @*<input type="text" class="form-control form-control-user" id="exampleInputEmail"
+                   placeholder="Mobile Number">*@
+            @Html.TextBoxFor(x => x.MobileNo, new { @class = "form-control form-control-user", placeholder = "Mobile Number" })
+            @Html.ValidationMessageFor(x => x.MobileNo)
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-12 mb-3 mb-sm-0">
+            <label for="address">Address</label>
+           @* <textarea class="form-control" placeholder="Address"></textarea>*@
+            @Html.TextAreaFor(x => x.Address, new { @class = "form-control", placeholder = "Address" })
+            @Html.ValidationMessageFor(x => x.Address)
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            <label for="date">Date Of Birth</label>
+         @*   <input type="date" class="form-control form-control-user" id="exampleInputEmail">*@
+            @Html.TextBoxFor(x => x.DOB, new { @class = "form-control form-control-user", placeholder = "Date of birth", type = "date" })
+            @Html.ValidationMessageFor(x => x.DOB)
+        </div>
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            <label for="gender">gender</label>
+            <div class="d-flex p-2">
+                @*<input type="radio" name="gender" value="male" class="form-check form-control-user" id="exampleInputEmail">*@
+                @Html.RadioButtonFor(x => x.Gender,"Male", new { @class = "form-check form-control-user" })
+                <span class="px-2">Male</span>
+                @*<input type="radio" name="gender" value="female" class="form-check form-control-user" id="exampleInputEmail">*@
+                @Html.RadioButtonFor(x => x.Gender,"Female", new { @class = "form-check form-control-user", value = "Female" })
+                <span class="px-2">Female</span>
+            </div>
+            @Html.ValidationMessageFor(x=>x.Gender)
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-4 mb-3 mb-sm-0">
+            <label for="address">Country</label>
+            @Html.DropDownListFor(x => x.Country, (IEnumerable<SelectListItem>)ViewBag.countryname, "-- Select Country --", new { @class = "form-control", @id = "country" })
+            @Html.ValidationMessageFor(x => x.Country)
+        </div>
+        <div class="col-sm-4 mb-3 mb-sm-0">
+            <label for="address">State</label>
+            <select class="form-control" id="state" name="State">
+                <option value="-1">-- Select State --</option>
+            </select>
+            @Html.ValidationMessageFor(x => x.State)
+
+        </div>
+        <div class="col-sm-4 mb-3 mb-sm-0">
+            <label for="address">City</label>
+            <select class="form-control" id="City" name="City">
+                <option value="-1">-- Select City --</option>
+            </select>
+            @Html.ValidationMessageFor(x => x.City)
+
+        </div>
+        <div class="col-sm-12 mb-3 mb-sm-0">
+            <label for="address">Teacher</label>
+            @Html.DropDownList("TeacherSelection", (IEnumerable<SelectListItem>)ViewBag.Teachers, new { @class = "form-control", id = "TeacherSelection" })
+            @Html.ValidationMessageFor(x => x.Teacher)
+            @Html.HiddenFor(x => x.Teacher)
+
+        </div>
+    </div>
+
+
+    <button class="btn btn-outline-primary">Submit</button>
+}
+@section Scripts{
+        <script src="~/Scripts/Custom/AddStudent.js"></script>
+    } 

@@ -1,0 +1,49 @@
+﻿@model StudentManagementSystem.Models.Context.City
+@{
+    ViewBag.Title = "AddCity";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post">
+    <div class="container-fluid text-center">
+        <h1>Add Country</h1>
+        <div class="row text-center">
+            <div class="col-6">
+                @Html.DropDownListFor(x => x.CountryId, (SelectList)ViewBag.Country, new { @class = "form-control", @id = "Country" })
+
+            </div>
+            <div class="col-6">
+                @Html.DropDownListFor(x => x.StateId, new SelectList(""), new { @class = "form-control", @id="State" });
+
+            </div>
+            <div class="col-12">
+                @Html.TextBoxFor(x => x.CityName, new { @class = "form-control", placeholder = "Add City" })
+
+
+            </div>
+            <button class="btn btn-outline-info my-4">Add City</button>
+        </div>
+    </div>
+</form>
+<script>
+    $(() => {
+        $('#Country').off().change(function () {
+            var id = $('#Country').val();
+            $('#State').html("");
+            $('#State').html(`<option value="-1">-- Select State --</option>`);
+          
+            $.ajax({
+                url: `/Home/GetState/${id}`,
+                method: 'GET',
+                success: function (res) {
+                    var data = res;
+                    data.forEach(ele => {
+                        $('#State').append(`<option value="${ele.Id}">${ele.StateName}</option>`);
+                    });
+                }
+            });
+        });
+       
+    })
+
+</script>

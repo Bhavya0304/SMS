@@ -1,0 +1,20 @@
+﻿@model StudentManagementSystem.Models.Context.Country
+@{
+    ViewBag.Title = "EditCountry";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid text-center">
+    <h1>Add Country</h1>
+    <div class="row text-center">
+        <div class="col-12">
+            <form method="post">
+                @Html.HiddenFor(x=>x.Id)
+                @Html.TextBoxFor(x => x.CountryName, new { @class = "form-control", placeholder = "Add Country" })
+                <button class="btn btn-outline-info my-4">Add Country</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+

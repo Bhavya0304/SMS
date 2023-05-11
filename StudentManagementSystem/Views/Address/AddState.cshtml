@@ -1,0 +1,25 @@
+﻿@model StudentManagementSystem.Models.Context.State
+@{
+    ViewBag.Title = "AddState";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+            <form method="post">
+<div class="container-fluid text-center">
+    <h1>Add Country</h1>
+    <div class="row text-center">
+        <div class="col-6">
+            @Html.DropDownListFor(x => x.CountryId,(SelectList) ViewBag.Country, new { @class = "form-control" })
+
+        </div>
+        <div class="col-6">
+            @Html.TextBoxFor(x => x.StateName, new { @class = "form-control", placeholder = "Add State" })
+           
+
+        </div>
+            <button class="btn btn-outline-info my-4">Add State</button>
+    </div>
+</div>
+            </form>
+
+

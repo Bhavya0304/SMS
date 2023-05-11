@@ -1,0 +1,15 @@
+C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Repositories\bin\Debug\StudentManagementSystem.Repositories.dll.config
+C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Repositories\bin\Debug\StudentManagementSystem.Repositories.dll
+C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Repositories\bin\Debug\StudentManagementSystem.Repositories.pdb
+C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Repositories\bin\Debug\EntityFramework.dll
+C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Repositories\bin\Debug\EntityFramework.SqlServer.dll
+C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Repositories\bin\Debug\StudentManagementSystem.Models.dll
+C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Repositories\bin\Debug\StudentManagementSystem.Models.pdb
+C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Repositories\bin\Debug\StudentManagementSystem.Models.dll.config
+C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Repositories\bin\Debug\EntityFramework.xml
+C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Repositories\bin\Debug\EntityFramework.SqlServer.xml
+C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Repositories\obj\Debug\StudentManagementSystem.Repositories.csproj.AssemblyReference.cache
+C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Repositories\obj\Debug\StudentManagementSystem.Repositories.csproj.CoreCompileInputs.cache
+C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Repositories\obj\Debug\StudentManagementSystem.Repositories.csproj.CopyComplete
+C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Repositories\obj\Debug\StudentManagementSystem.Repositories.dll
+C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Repositories\obj\Debug\StudentManagementSystem.Repositories.pdb

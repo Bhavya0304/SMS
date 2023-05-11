@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BJBhavyaJoshiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CityName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="StateId" Type="Int32" />
+    <Property Name="CountryId" Type="Int32" />
+    <NavigationProperty Name="Country" Relationship="Self.FK__City__CountryId__2C3393D0" FromRole="City" ToRole="Country" />
+    <NavigationProperty Name="State" Relationship="Self.FK__City__StateId__2B3F6F97" FromRole="City" ToRole="States" />
+    <NavigationProperty Name="Students" Relationship="BJBhavyaJoshiModel.FK__Student__City__75A278F5" FromRole="City" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Cities" Relationship="Self.FK__City__CountryId__2C3393D0" FromRole="Country" ToRole="City" />
+    <NavigationProperty Name="States" Relationship="Self.FK__States__CountryI__286302EC" FromRole="Country" ToRole="States" />
+    <NavigationProperty Name="Students" Relationship="BJBhavyaJoshiModel.FK__Student__Country__73BA3083" FromRole="Country" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="SMS_User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StateName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CountryId" Type="Int32" />
+    <NavigationProperty Name="Cities" Relationship="Self.FK__City__StateId__2B3F6F97" FromRole="States" ToRole="City" />
+    <NavigationProperty Name="Country" Relationship="Self.FK__States__CountryI__286302EC" FromRole="States" ToRole="Country" />
+    <NavigationProperty Name="Students" Relationship="BJBhavyaJoshiModel.FK__Student__State__74AE54BC" FromRole="State" ToRole="Student" />
+  </EntityType>
+  <Association Name="FK__City__CountryId__2C3393D0">
+    <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__City__StateId__2B3F6F97">
+    <End Role="States" Type="Self.State" Multiplicity="0..1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="States">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__States__CountryI__286302EC">
+    <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="States" Type="Self.State" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="States">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BJBhavyaJoshiEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cities" EntityType="Self.City" />
+    <EntitySet Name="Countries" EntityType="Self.Country" />
+    <EntitySet Name="SMS_User" EntityType="Self.SMS_User" />
+    <EntitySet Name="States" EntityType="Self.State" />
+    <AssociationSet Name="FK__City__CountryId__2C3393D0" Association="Self.FK__City__CountryId__2C3393D0">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="City" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK__City__StateId__2B3F6F97" Association="Self.FK__City__StateId__2B3F6F97">
+      <End Role="States" EntitySet="States" />
+      <End Role="City" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK__States__CountryI__286302EC" Association="Self.FK__States__CountryI__286302EC">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="States" EntitySet="States" />
+    </AssociationSet>
+    <EntitySet Name="Students" EntityType="BJBhavyaJoshiModel.Student" />
+    <AssociationSet Name="FK__Student__City__75A278F5" Association="BJBhavyaJoshiModel.FK__Student__City__75A278F5">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="Student" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Student__Country__73BA3083" Association="BJBhavyaJoshiModel.FK__Student__Country__73BA3083">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="Student" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Student__State__74AE54BC" Association="BJBhavyaJoshiModel.FK__Student__State__74AE54BC">
+      <End Role="State" EntitySet="States" />
+      <End Role="Student" EntitySet="Students" />
+    </AssociationSet>
+    <FunctionImport Name="getStudentData" ReturnType="Collection(BJBhavyaJoshiModel.getStudentData_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="MobileNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Gender" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="Int32" />
+    <Property Name="State" Type="Int32" />
+    <Property Name="City" Type="Int32" />
+    <NavigationProperty Name="City1" Relationship="BJBhavyaJoshiModel.FK__Student__City__75A278F5" FromRole="Student" ToRole="City" />
+    <NavigationProperty Name="Country1" Relationship="BJBhavyaJoshiModel.FK__Student__Country__73BA3083" FromRole="Student" ToRole="Country" />
+    <NavigationProperty Name="State1" Relationship="BJBhavyaJoshiModel.FK__Student__State__74AE54BC" FromRole="Student" ToRole="State" />
+  </EntityType>
+  <Association Name="FK__Student__City__75A278F5">
+    <End Type="BJBhavyaJoshiModel.City" Role="City" Multiplicity="0..1" />
+    <End Type="BJBhavyaJoshiModel.Student" Role="Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="City" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Student__Country__73BA3083">
+    <End Type="BJBhavyaJoshiModel.Country" Role="Country" Multiplicity="0..1" />
+    <End Type="BJBhavyaJoshiModel.Student" Role="Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="Country" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Student__State__74AE54BC">
+    <End Type="BJBhavyaJoshiModel.State" Role="State" Multiplicity="0..1" />
+    <End Type="BJBhavyaJoshiModel.Student" Role="Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="State" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="getStudentData_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="Address" Nullable="true" />
+    <Property Type="String" Name="MobileNo" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="255" />
+    <Property Type="DateTime" Name="DOB" Nullable="false" />
+    <Property Type="String" Name="Gender" Nullable="false" MaxLength="20" />
+    <Property Type="Int32" Name="Country" Nullable="true" />
+    <Property Type="Int32" Name="State" Nullable="true" />
+    <Property Type="Int32" Name="City" Nullable="true" />
+    <Property Type="String" Name="CityName" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="StateName" Nullable="false" MaxLength="255" />
+    <Property Type="String" Name="CountryName" Nullable="false" MaxLength="255" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,22 @@
+﻿@model StudentManagementSystem.Models.Context.Subject
+@{
+    ViewBag.Title = "AddSubject";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <h1>Add Subject</h1>
+    <div class="row">
+        <div class="col-12">
+            <form method="post">
+                <div>
+                @Html.ValidationMessageFor(x=>x.SubjectName, "",new { @class="m-0 my-3" })
+                @Html.TextBoxFor(x => x.SubjectName, new { @class = "form-control", placeholder = "Add Subject" })
+                </div>
+
+                <button class="btn btn-outline-info my-4">Add Subject</button>
+            </form>
+        </div>
+    </div>
+</div>
+

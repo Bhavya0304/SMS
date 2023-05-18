@@ -18,3 +18,10 @@ C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Helpers\bin\De
 C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Helpers\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Helpers\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Helpers\obj\Debug\StudentManagementSystem.Helpers.csproj.CopyComplete
+C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Helpers\bin\Debug\Newtonsoft.Json.dll
+C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Helpers\bin\Debug\StudentManagementSystem.Models.dll
+C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Helpers\bin\Debug\EntityFramework.dll
+C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Helpers\bin\Debug\StudentManagementSystem.Models.pdb
+C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Helpers\bin\Debug\StudentManagementSystem.Models.dll.config
+C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Helpers\bin\Debug\Newtonsoft.Json.xml
+C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Helpers\bin\Debug\EntityFramework.xml

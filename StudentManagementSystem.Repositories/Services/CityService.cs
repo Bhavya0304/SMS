@@ -3,12 +3,15 @@ using StudentManagementSystem.Models.Context;
 using StudentManagementSystem.Repositories.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace StudentManagementSystem.Repositories.Services
 {
+
+
     public class CityService : ICityService
     {
         public int AddCity(City data)
@@ -127,6 +130,22 @@ namespace StudentManagementSystem.Repositories.Services
                 return cities;
             }
             catch (Exception e) { return new List<City>(); }
+        }
+
+        public async Task<List<City>> GetAllCityAsync()
+        {
+            try
+            {
+                List<City> data;
+                using (BJBhavyaJoshiEntities _db = new BJBhavyaJoshiEntities())
+                {
+                    data = await _db.Cities.ToListAsync();
+                }
+               
+                return data;
+            }
+            catch (Exception e) { return new List<City>(); }
+            
         }
     }
 }

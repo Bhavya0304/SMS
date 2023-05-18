@@ -110,7 +110,6 @@ namespace StudentManagementSystem.Repositories.Services
                         _db.Entry(oldTeacher).CurrentValues.SetValues(teacher);
                         _db.SaveChanges();
                         return 1;
-                    
                 }
             }
             catch (Exception e)

@@ -23,3 +23,5 @@ C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Models\obj\Deb
 C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Models\obj\Debug\StudentManagementSystem.Models.csproj.CopyComplete
 C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Models\obj\Debug\StudentManagementSystem.Models.dll
 C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Models\obj\Debug\StudentManagementSystem.Models.pdb
+C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Models\bin\Debug\Newtonsoft.Json.dll
+C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Models\bin\Debug\Newtonsoft.Json.xml

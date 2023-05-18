@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,6 +14,17 @@ namespace StudentManagementSystem.Models.Context
         {
             [Required]
             public string CountryName { get; set; }
+            [JsonIgnore]
+            public virtual ICollection<City> Cities { get; set; }
+            [JsonIgnore]
+
+            public virtual ICollection<State> States { get; set; }
+            [JsonIgnore]
+
+            public virtual ICollection<Student> Students { get; set; }
+            [JsonIgnore]
+
+            public virtual ICollection<Teacher> Teachers { get; set; }
 
         }
 

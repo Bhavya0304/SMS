@@ -20,6 +20,7 @@ namespace StudentManagementSystem.Repositories.Repositories
         City GetSingleCity(int id);
         
         List<City> GetAllCity();
+        Task<List<City>> GetAllCityAsync();
 
         List<City> GetCityAccordingToState(int StateId);
 

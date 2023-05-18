@@ -6,6 +6,7 @@ using StudentManagementSystem.Repositories.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -21,6 +22,7 @@ namespace StudentManagementSystem.Controllers
         public ITeacherService teacherService;
         public IStudentService studentService;
         public ISubjectService subjectService;
+        public WebAPI api = new WebAPI();
 
 
         public void BindTempData()

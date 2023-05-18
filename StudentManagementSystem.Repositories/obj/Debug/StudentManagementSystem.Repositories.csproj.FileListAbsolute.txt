@@ -13,3 +13,5 @@ C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Repositories\o
 C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Repositories\obj\Debug\StudentManagementSystem.Repositories.csproj.CopyComplete
 C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Repositories\obj\Debug\StudentManagementSystem.Repositories.dll
 C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Repositories\obj\Debug\StudentManagementSystem.Repositories.pdb
+C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Repositories\bin\Debug\Newtonsoft.Json.dll
+C:\Bhavya\DotNetF\StudentManagementSystem\StudentManagementSystem.Repositories\bin\Debug\Newtonsoft.Json.xml

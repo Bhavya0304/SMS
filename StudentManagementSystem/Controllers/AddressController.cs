@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using StudentManagementSystem.Models.Context;
 using StudentManagementSystem.Helpers.Helpers;
+using System.Threading.Tasks;
 
 namespace StudentManagementSystem.Controllers
 {
@@ -23,12 +24,7 @@ namespace StudentManagementSystem.Controllers
             cityService = _cityService;
             stateService = _stateService;
             countryService = _countryService;
-           
-
-
         }
-
-       
 
         public void BindTempData()
         {
@@ -49,12 +45,14 @@ namespace StudentManagementSystem.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddCountry(Country data)
+        public async Task<ActionResult> AddCountry(Country data)
         {
             if (ModelState.IsValid)
             {
-                
-                int status = countryService.AddCountry(data);
+
+                //int status = countryService.AddCountry(data);
+                HttpCall<Country> http = new HttpCall<Country>();
+                int status = await http.CallPost("http://localhost:50000/api/Country", "Country", data);
                 if(status == 1)
                 {
                     return RedirectToAction("AllCountry");
@@ -71,10 +69,30 @@ namespace StudentManagementSystem.Controllers
             return View();
         }
 
-        public ActionResult AllCountry()
+        public async Task<ActionResult> AllCountry()
         {
             BindTempData();
+            HttpCall<List<Country>> data = new HttpCall<List<Country>>();
+            var res = await data.CallGet("http://localhost:50000/api/Country", "Country");
+           
+            List<Country> newData = (List<Country>) res;
             return View(countryService.GetAllCountries());
+        }
+        public JsonResult GetCountrysss()
+        {
+            int offset = Convert.ToInt32(HttpContext.Request.Params["start"]);
+            int length = Convert.ToInt32(HttpContext.Request.Params["length"]);
+            int draw = Convert.ToInt32(HttpContext.Request.Params["draw"]);
+            var data = (from a in countryService.GetAllCountriesOffset(length, offset) select new { CountryName = a.CountryName, Id = a.Id }).ToList();
+            var obj =
+            new
+            {
+                data = data,
+                draw = draw,
+                recordsFiltered = countryService.GetTotalLength(),
+                recordsTotal = countryService.GetTotalLength()
+            };
+            return Json(obj, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult EditCountry(int id)
